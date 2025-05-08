@@ -1,0 +1,32 @@
+[
+    {
+        "name" : "Salman Khan",
+        "email" :"salman@gmail.com" ,
+        "age" : 25,
+        "city": "Mumbai"
+    },
+    {
+        "name" : "Raju Indulkar",
+        "email" : "raju@gmail.com",
+        "age" : 21,
+        "city": "Bhopal"
+    },
+    {
+        "name" : "Ramesh Nauti",
+        "email" : "ramesh@gmail.com",
+        "age" : 17,
+        "city": "UP"
+    },
+    {
+        "name" : "Mangash Jutis",
+        "email" : "mangesh@gmail.com",
+        "age" : 28,
+        "city": "UK"
+    },
+    {
+        "name" : "Ram Gopal",
+        "email" : "ram@gmail.com",
+        "age" : 19,
+        "city": "AP"
+    }
+]
