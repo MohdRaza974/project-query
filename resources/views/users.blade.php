@@ -12,7 +12,7 @@
 
 <body>
     <div class="container p-3">
-        <div class="row" style="place-content: center;">
+        <div class="row position-relative" style="place-content: center;">
             <div class="col-6">
                 <h1>All Users Data List:</h1>
                 <a href="/newuser" class="btn btn-sm btn-success mb-4">New User</a>
@@ -43,6 +43,9 @@
                         </tr>
                     @endforeach
                 </table>
+            </div>
+            <div class="my-4 text-center">
+                {{ $data->links('pagination::bootstrap-5') }}
             </div>
         </div>
     </div>

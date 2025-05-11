@@ -9,7 +9,8 @@ class UserContoller extends Controller
 {
     public function showUsers()
     {
-        $users = DB::table('users')->get();
+        $users = DB::table('users')
+        ->paginate(4);
         // return $users;
 
         return view('users', ['data' => $users]);
@@ -76,13 +77,8 @@ class UserContoller extends Controller
 
     public function deleteAllUsers()
     {
-        $user = DB::table('users')->truncate();
-
-        if ($user) {
-            return redirect()->route('users');
-        } else {
-            echo "<h1>Error while Deleting Data!</h1>";
-        }
+        DB::table('users')->truncate();
+        return redirect()->route('users');
     }
 
     // public function form(){
