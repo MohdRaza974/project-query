@@ -21,49 +21,64 @@ class UserContoller extends Controller
         return view('user', ['data' => $users]);
     }
 
-    public function addUser()
+    public function addUser(Request $request)
     {
-        $user = DB::table('users')->upsert(
+        $user = DB::table('users')->insert(
             [
-                'name' => 'Ram Klurai',
-                'age' => 20,
-                'email' => '123@gmail.com',
-                'city' => 'Mumbai',
-            ],
-            ['email'], ['city']
+                'name' => $request->name,
+                'age' => $request->age,
+                'email' => $request->email,
+                'city' => $request->city
+            ]
         );
-        dump($user);
         if ($user) {
-            echo "<h1>Data Added Successfully!</h1>";
+            return redirect()->route('users');
+            // echo "<h1>Data Added Successfully!</h1>";
         } else {
             echo "<h1>Error Inserting Data!</h1>";
         }
     }
 
-    public function updateUser() {
-        $user = DB::table('users')->where('id', 2)->increment('age');
+    public function updateUser(Request $request, $id)
+    {
+        $user = DB::table('users')->where('id', $id)->update([
+            'name' => $request->name,
+            'age' => $request->age,
+            'email' => $request->email,
+            'city' => $request->city
+        ]);
 
-        if($user){
-            echo "<h1>Data Updated Successfully!</h1>";
+        if ($user) {
+            return redirect()->route('users');
+            // echo "<h1>Data Updated Successfully!</h1>";
         } else {
             echo "<h1>Error while Updating Data!</h1>";
         }
     }
 
-    public function deleteUser(string $id) {
+    public function updatePage(string $id)
+    {
+        $user = DB::table('users')->find($id);
+        // return $user;
+        return view('update', ['data' => $user]);
+    }
+
+    public function deleteUser(string $id)
+    {
         $user = DB::table('users')->where('id', $id)->delete();
 
-        if($user){
+        if ($user) {
             return redirect()->route('users');
         } else {
             echo "<h1>Error while Deleting Data!</h1>";
         }
     }
 
-    public function deleteAllUsers() {
+    public function deleteAllUsers()
+    {
         $user = DB::table('users')->truncate();
 
-        if($user){
+        if ($user) {
             return redirect()->route('users');
         } else {
             echo "<h1>Error while Deleting Data!</h1>";

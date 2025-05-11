@@ -15,7 +15,7 @@
         <div class="row" style="place-content: center;">
             <div class="col-6">
                 <h1>All Users Data List:</h1>
-                <a href="/adduser" class="btn btn-sm btn-success mb-4">New User</a>
+                <a href="/newuser" class="btn btn-sm btn-success mb-4">New User</a>
                 <table class="table table-striped table-bordered">
                     <tr>
                         <th>ID</th>
@@ -38,7 +38,7 @@
                             </td>
                             <td><a href="{{ route('delete.user', $user->id) }}" class="btn btn-danger btn-sm">Delete</a>
                             </td>
-                            <td><a href="{{ route('update.user', $user->id) }}"
+                            <td><a href="{{ route('update.page', $user->id) }}"
                                     class="btn btn-warning btn-sm">Update</a></td>
                         </tr>
                     @endforeach
